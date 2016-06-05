@@ -1,0 +1,28 @@
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-family: Arial, sans-serif;
+  font-weight: 300;
+}
+
+html,
+body {
+  background: #141B2B;
+  color: #ccc;
+  font-size: 14px;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+:global #app {
+  height: 100%;
+}
+:global #app::before,
+:global #app::after {
+  content: '';
+  display: table;
+  clear: both;
+}

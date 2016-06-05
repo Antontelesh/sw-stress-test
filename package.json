@@ -1,0 +1,51 @@
+{
+  "name": "sw-stress-test",
+  "version": "1.0.0",
+  "description": "Testing service workers size limit",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint src",
+    "copy:index": "copyfiles -f ./src/index.html ./dist",
+    "copy:sw-toolbox": "copyfiles -u 1 ./node_modules/sw-toolbox/** ./dist",
+    "copy:service-worker": "copyfiles -f ./src/service-worker.js ./dist",
+    "clean": "rimraf ./dist",
+    "compile:webpack": "webpack",
+    "precompile": "npm-run-all lint clean",
+    "compile": "npm-run-all compile:webpack copy:index copy:service-worker copy:sw-toolbox",
+    "watch": "webpack -w",
+    "start:app": "http-server ./dist -p 8080",
+    "start:pictures": "http-server ./pictures -p 8099",
+    "start": "npm-run-all --parallel start:app start:pictures"
+  },
+  "author": "Anton Telesh <telesh91@gmail.com>",
+  "license": "ISC",
+  "devDependencies": {
+    "babel-core": "^6.9.1",
+    "babel-loader": "^6.2.4",
+    "babel-preset-es2015": "^6.9.0",
+    "babel-preset-react": "^6.5.0",
+    "canonical-path": "0.0.2",
+    "copyfiles": "^0.2.1",
+    "css-loader": "^0.23.1",
+    "eslint": "^2.11.1",
+    "eslint-loader": "^1.3.0",
+    "eslint-plugin-react": "^5.1.1",
+    "http-server": "^0.9.0",
+    "npm-run-all": "^2.1.1",
+    "postcss-custom-properties": "^5.0.1",
+    "postcss-import": "^8.1.2",
+    "postcss-loader": "^0.9.1",
+    "react-redux": "^4.4.5",
+    "redux": "^3.5.2",
+    "rimraf": "^2.5.2",
+    "style-loader": "^0.13.1",
+    "webpack": "^1.13.1"
+  },
+  "dependencies": {
+    "react": "^15.1.0",
+    "react-dom": "^15.1.0",
+    "redux-logger": "^2.6.1",
+    "sw-toolbox": "^3.1.1"
+  }
+}

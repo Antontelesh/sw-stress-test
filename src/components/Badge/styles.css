@@ -1,0 +1,17 @@
+.badge {
+  display: inline-block;
+  padding: 0 1em;
+  height: 1em;
+}
+
+.success {
+  color: #66DE34;
+}
+
+.warning {
+  color: orange;
+}
+
+.error {
+  color: red;
+}

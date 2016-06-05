@@ -1,0 +1,17 @@
+.imageListItem {
+  composes: row from "../../styles/shared.css";
+  cursor: pointer;
+}
+
+.source {
+  float: left;
+}
+
+.status {
+  float: left;
+  width: 3em;
+}
+
+:global .current {
+  color: orange;
+}
